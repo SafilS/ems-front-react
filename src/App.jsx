@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import GetEmployees from "./components/GetEmployees";
+import AddEmployee from "./components/AddEmployee";
 import Login from "./components/Login";
-import Register from "./components/Registration";
-import Home from "./components/Hero"; // We will create this  
+import Signup from "./components/Signup";
 
-function App() {
+const App = () => (
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/addemployee" element={<AddEmployee />} />
+      <Route path="/employees" element={<GetEmployees />} />
+      <Route path="/register" element={<Signup />} />
+    </Routes>
+  </Router>
+);
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Router>
-  );
-  
-}
-
-export default App
+export default App;
